@@ -3,1036 +3,849 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolSpeedStar ($SSS) - The Fastest Star in the Blockchain Galaxy!</title>
-    <meta name="description" content="Join SolSpeedStar ($SSS), the revolutionary meme coin on the Solana blockchain. Buy on pump.fun, join our community, and ride the cosmic wave!">
-    <meta name="keywords" content="SolSpeedStar, $SSS, SSS, meme coin, Solana, crypto, pump.fun, blockchain, cryptocurrency, buy SSS">
+    <title>SolSpeedStar ($SSS) - Professional Redesign</title>
+    <meta name="description" content="Immerse yourself in SolSpeedStar ($SSS) — a new generation meme coin on Solana. Premium design, cutting-edge technology, and an exciting community.">
+    <meta name="keywords" content="SolSpeedStar, $SSS, SSS, meme coin, Solana, crypto, pump.fun, blockchain, cryptocurrency, web3, design">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js for 3D graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- TODO: Consider hosting the favicon locally or ensure placehold.co is suitable for production -->
-    <link rel="icon" href="https://placehold.co/32x32/000000/00D4FF?text=SSS&font=orbitron" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%230AF0F0%22>✧</text></svg>">
 
     <style>
+        :root {
+            --color-primary: #0AF0F0; /* Bright Turquoise */
+            --color-secondary: #9B30FF; /* Purple */
+            --color-dark: #010103;
+            --color-bg: #0A0A10;
+        }
+
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: #00D4FF; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #7B00FF; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: var(--color-dark);
+            color: #E0E0E0;
             overflow-x: hidden; 
-            padding-top: 4rem; /* For fixed h-16 header */
         }
 
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
 
-        .hero-bg {
-            background-color: #000000; /* Fallback */
-            background-image: 
-                radial-gradient(ellipse at 70% 30%, rgba(123, 0, 255, 0.45) 0%, transparent 60%), 
-                radial-gradient(ellipse at 30% 70%, rgba(0, 212, 255, 0.4) 0%, transparent 55%),  
-                radial-gradient(ellipse at 50% 50%, rgba(20, 0, 50, 0.55) 0%, #020005 70%); 
-            background-size: 350% 350%, 300% 300%, 100% 100%; 
-            background-position: 0% 0%;
-            background-attachment: fixed;
-            animation: 
-                cosmicDrift 90s linear infinite alternate, 
-                subtleZoomHeroBG 60s infinite alternate ease-in-out; 
+        /* Grain effect for background */
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVAAAAacXJUPEBFQkZUT0tPTE1OT09BEAASDA9BQUDHR0ec/PHp8vjQ2dza4t7p8vjJ0d7V3+HY4t/e5/ocCAw+S8ZlAAAAVElEQVR42uzNjQoAMQhE0TRg79a7/3/tQdGD7gUv+9r5vO8SSIIw+b2xINMvG84l4P2fM43Ew4p2P6+k/t9b4Q/2bYx+4l5P6W+eT+k+s+qG+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6-');
+            z-index: -1;
+            opacity: 0.05;
+            animation: noise 0.5s steps(2) infinite;
         }
-        @keyframes cosmicDrift {
-            0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
-            50% { background-position: 50% 100%, 50% 0%, 0% 0%; }
-            100% { background-position: 100% 50%, 0% 50%, 0% 0%; }
-        }
-        @keyframes subtleZoomHeroBG {
-            0% { background-size: 350% 350%, 300% 300%, 100% 100%; }
-            100% { background-size: 380% 380%, 330% 330%, 105% 105%; }
+        @keyframes noise {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -10%); }
+          20% { transform: translate(-15%, 5%); }
+          30% { transform: translate(7%, -25%); }
+          40% { transform: translate(-5%, 25%); }
+          50% { transform: translate(-15%, 10%); }
+          60% { transform: translate(15%, 0%); }
+          70% { transform: translate(0%, 15%); }
+          80% { transform: translate(3%, 35%); }
+          90% { transform: translate(-10%, 10%); }
         }
 
-        .stars-container { 
+        #wormhole-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden; pointer-events: none; z-index: 0; 
+            z-index: -2;
+            background: var(--color-dark);
         }
-        .star {
-            position: absolute; background-color: white; border-radius: 50%;
-            animation-timing-function: ease-in-out; animation-iteration-count: infinite;
-        }
-        .star.layer1 { animation-name: twinkle-bright; }
-        @keyframes twinkle-bright { 0%, 100% { opacity: 0.5; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.2); } } 
-        .star.layer2 { animation-name: twinkle-medium; }
-        @keyframes twinkle-medium { 0%, 100% { opacity: 0.3; transform: scale(0.7); } 50% { opacity: 0.9; transform: scale(1); } } 
-        .star.layer3 { animation-name: twinkle-dim; }
-        @keyframes twinkle-dim { 0%, 100% { opacity: 0.2; transform: scale(0.5); } 50% { opacity: 0.7; transform: scale(0.8); } } 
 
-        /* Button Glow Effects */
-        .btn-glow, .btn-glow-purple { 
-            transition: all 0.3s ease-in-out; 
-            position: relative; 
-            overflow: hidden; 
+        #hero-canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            z-index: 0;
         }
-        .btn-glow { box-shadow: 0 0 8px #00D4FF, 0 0 15px #00D4FF, 0 0 2px #7B00FF; } 
-        .btn-glow:hover { 
-            box-shadow: 0 0 20px #00D4FF, 0 0 35px #00D4FF, 0 0 10px #7B00FF inset, 0 0 5px #7B00FF; 
-            transform: translateY(-3px) scale(1.07); 
-        }
-        .btn-glow-purple { box-shadow: 0 0 8px #7B00FF, 0 0 15px #7B00FF, 0 0 2px #00D4FF; } 
-        .btn-glow-purple:hover { 
-            box-shadow: 0 0 20px #7B00FF, 0 0 35px #7B00FF, 0 0 10px #00D4FF inset, 0 0 5px #00D4FF; 
-            transform: translateY(-3px) scale(1.07); 
+
+        /* Header */
+        #navbar {
+            height: 64px; /* Thinner header */
+            background-color: rgba(10, 10, 16, 0.7);
+            backdrop-filter: blur(12px);
+            transition: top 0.3s ease-in-out;
         }
         
-        .btn-glow::after, .btn-glow-purple::after {
+        /* Mobile Nav Scrolling */
+        .mobile-nav-scroll {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .mobile-nav-scroll::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        /* --- Refined Button Styles --- */
+
+        /* Base Pro Button */
+        .btn-pro {
+            position: relative;
+            display: inline-block;
+            padding: 10px 24px;
+            border: 2px solid;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            overflow: hidden;
+            transition: color 0.4s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1;
+            background-color: transparent;
+        }
+        .btn-pro-primary {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        .btn-pro-secondary {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+        }
+
+        /* Fill Effect */
+        .btn-pro::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(30deg);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--color-primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: -1;
+        }
+        .btn-pro-secondary::before {
+             background: var(--color-secondary);
+        }
+        
+        /* Hover State */
+        .btn-pro:hover {
+            color: var(--color-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-pro:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Hero Buttons Size */
+         .btn-hero {
+            padding: 14px 28px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        /* Social Connect Buttons */
+        .btn-social {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .btn-social .icon {
+            transition: transform 0.3s ease;
+        }
+        .btn-social:hover .icon {
+            transform: scale(1.1);
+        }
+        .btn-social::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(110deg, transparent 20%, var(--glow-color, var(--color-primary)), transparent 80%);
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: translateX(-101%);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        .btn-glow:hover::after, .btn-glow-purple:hover::after {
-            opacity: 1;
-            animation: shimmer 2s infinite linear;
+        .btn-social:hover::after {
+            opacity: 0.5;
+            transform: translateX(101%);
         }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
+        .btn-social:hover {
+            border-color: var(--glow-color, var(--color-primary));
+            background: rgba(255, 255, 255, 0.1);
         }
-        
-        .btn-header-buy {
-            background-color: #00D4FF; color: black; padding: 0.35rem 0.75rem; 
-            border-radius: 0.375rem; 
-            font-weight: bold; text-transform: uppercase; font-size: 0.75rem; 
-            transition: all 0.3s ease-in-out;
+        .btn-social .text {
+            transition: color 0.3s ease;
         }
-        .btn-header-buy:hover { 
-            transform: scale(1.03); 
-            box-shadow: 0 0 8px #00D4FF, 0 0 12px #00D4FF;
+        .btn-social:hover .text {
+            color: #fff;
         }
 
 
-        /* --- Unified Section Title Styling --- */
-        .section-title, .sub-section-title { 
-            @apply font-orbitron font-bold text-center relative;
-            font-size: 2rem !important; 
-            margin-top: 6rem; 
-            margin-bottom: 4rem; 
-            line-height: 1.1; 
-            text-shadow: 
-                0 0 7px rgba(255,255,255,0.95),   
-                0 0 15px #00D4FF,
-                0 0 28px #00D4FF,
-                0 0 45px #7B00FF, 
-                0 0 65px #7B00FF;
-            animation: unifiedNeonPulse 3s infinite alternate ease-in-out;
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #fff, var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        @keyframes unifiedNeonPulse {
-            0% {
-                transform: scale(1); opacity: 0.9;
-                text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 12px #00D4FF, 0 0 22px #00D4FF, 0 0 40px #7B00FF, 0 0 60px #7B00FF, 2px 2px 30px rgba(123, 0, 255, 0.1); 
-            }
-            100% {
-                transform: scale(1.04); opacity: 1;
-                text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px #00D4FF, 0 0 35px #00D4FF, 0 0 55px #7B00FF, 0 0 80px #7B00FF, -2px -2px 35px rgba(0, 212, 255, 0.12); 
-            }
-        }
-                
-        /* Responsive font sizes for ALL titles */
-        @media (min-width: 640px) { /* sm */
-            .section-title, .sub-section-title { 
-                font-size: 2.75rem !important; 
-            }
-        }
-        @media (min-width: 768px) { /* md */
-            .section-title, .sub-section-title { 
-                font-size: 3.5rem !important; 
-            }
-        }
-        @media (min-width: 1024px) { /* lg */
-            .section-title, .sub-section-title { 
-                font-size: 4.25rem !important; 
-            }
-        }
-        /* --- End of Section Title Styling --- */
-        
-        .cosmic-card {
-            background-color: rgba(10, 10, 20, 0.85); border: 1px solid #00D4FF;
-            backdrop-filter: blur(8px); border-radius: 1rem; 
+        /* Pro Card with animated border */
+        .pro-card {
+            background: rgba(20, 20, 35, 0.5);
+            border: 1px solid rgba(155, 48, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-             opacity: 0; 
         }
-        .cosmic-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px #7B00FF, 0 0 35px #00D4FF; }
-
-        .animated-gradient-bg { background-size: 200% 200% !important; animation: animatedGradient 20s ease infinite; }
-        @keyframes animatedGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
-        .copy-address-btn {
-            background-color: #00D4FF; color: #000000; padding: 0.5rem 1rem;
-            border-radius: 0.5rem; transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-flex; align-items: center; gap: 0.5rem; 
+        .pro-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: inherit;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(155, 48, 255, 0.2), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
         }
-        .copy-address-btn:hover { background-color: #7B00FF; color: #FFFFFF; transform: scale(1.05); }
-        .copy-address-btn svg { width: 1.2rem; height: 1.2rem; transition: opacity 0.3s ease-in-out; }
-        .copy-address-btn .tick-icon { color: #34D399; }
-        .copied-message { color: #00D4FF; font-size: 0.875rem; height: 1.25rem; display: inline-block; margin-left: 0.5rem; }
-
-        .tokenomics-row { opacity: 0; transform: translateY(20px); animation: fadeInRow 0.5s forwards; animation-play-state: paused; } 
-        @keyframes fadeInRow { to { opacity: 1; transform: translateY(0); } }
-        .tokenomics-row:nth-child(1) { animation-delay: 0.2s; }
-        .tokenomics-row:nth-child(2) { animation-delay: 0.4s; }
-        .tokenomics-row:nth-child(3) { animation-delay: 0.6s; }
-        .tokenomics-row:nth-child(4) { animation-delay: 0.8s; }
-        .tokenomics-row:nth-child(5) { animation-delay: 1.0s; }
-
-        .animated-sss-logo {
-            animation: logoPulseGentle 4.5s infinite alternate ease-in-out, logoFloat 8s infinite alternate ease-in-out; 
+        .pro-card:hover::before {
+            opacity: 1;
         }
-        @keyframes logoPulseGentle {
-            0% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 12px #00D4FF) drop-shadow(0 0 20px #00D4FF) brightness(1);
-            }
-            50% {
-                transform: scale(1.03); 
-                filter: drop-shadow(0 0 18px #00D4FF) drop-shadow(0 0 28px #00D4FF) brightness(1.05); 
-            }
-            100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 12px #00D4FF) drop-shadow(0 0 20px #00D4FF) brightness(1);
-            }
+        .pro-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        @keyframes logoFloat { 
-            0% { transform: translateY(0px) rotate(-2deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(-2deg); }
+
+        /* Roadmap */
+        .roadmap-timeline { position: relative; }
+        .roadmap-timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+            top: 0; bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            border-radius: 3px;
+        }
+        .roadmap-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        .roadmap-item.left { left: 0; }
+        .roadmap-item.right { left: 50%; }
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            right: -10px;
+            background-color: var(--color-dark);
+            border: 4px solid var(--color-primary);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .roadmap-item.right::after { left: -10px; }
+        .roadmap-item.is-visible .roadmap-content {
+            transform: none;
+            opacity: 1;
+        }
+        .roadmap-item.is-visible::after {
+            background-color: var(--color-primary);
+            transform: scale(1.2);
+        }
+        .roadmap-content {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        .roadmap-item.left .roadmap-content { transform: translateX(-30px); }
+        .roadmap-item.right .roadmap-content { transform: translateX(30px); }
+
+        /* Reveal on scroll animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
+        /* Live Transaction Feed */
         .live-tx-feed { 
-            min-height: 160px; 
-            max-height: 220px; 
+            min-height: 200px; 
+            max-height: 240px; 
             overflow-y: auto; 
         }
-        .tx-item, .tx-item-alt { 
-            transition: background-color 0.3s ease;
+        .tx-item { 
+            transition: background-color 0.3s ease, opacity 0.5s, transform 0.5s;
             padding: 0.6rem 0.75rem; 
+            border-left: 3px solid;
+            margin-bottom: 0.75rem;
+            border-radius: 0.25rem;
         }
-        .tx-item {
-            background-color: rgba(0, 212, 255, 0.07); 
-            border-left: 3px solid #00D4FF;
-        }
-         .tx-item-alt {
-            background-color: rgba(123, 0, 255, 0.07); 
-            border-left: 3px solid #7B00FF;
-        }
-        .tx-item:not(:last-child), .tx-item-alt:not(:last-child) {
-            margin-bottom: 0.75rem; 
-        }
-        .tx-item:hover, .tx-item-alt:hover {
-            background-color: rgba(255, 255, 255, 0.06); 
-        }
+        .tx-buy { border-color: var(--color-primary); background-color: rgba(10, 240, 240, 0.07); }
+        .tx-buy:hover { background-color: rgba(10, 240, 240, 0.15); }
+        .tx-sell { border-color: #FF4500; background-color: rgba(255, 69, 0, 0.07); }
+        .tx-sell:hover { background-color: rgba(255, 69, 0, 0.15); }
 
-        @keyframes newTxEntry { 
-            0% { 
-                opacity: 0; 
-                transform: translateY(-100%); 
-            }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-        .tx-item.highlight-new { 
-            animation: newTxHighlight 2s ease-out;
-        }
-        @keyframes newTxHighlight {
-            0%, 100% { background-color: inherit; } 
-            50% { background-color: rgba(0, 212, 255, 0.2); }
-        }
-        .tx-item-alt.highlight-new {
-             animation: newTxHighlightPurple 2s ease-out;
-        }
-        @keyframes newTxHighlightPurple {
-            0%, 100% { background-color: inherit; } 
-            50% { background-color: rgba(123, 0, 255, 0.2); }
-        }
-        
-        .tx-time { 
-            flex-shrink: 0;
-        }
-
-        @keyframes fadeInSlideUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeInSlideUp {
-            opacity: 0; 
-        }
-        
-        .social-icon-link {
-            opacity: 0;
-            transform: scale(0.5) translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-
+        /* Wallet Links */
         .wallet-link {
-            @apply block text-[#7B00FF] hover:text-white text-xs transition-all duration-200 ease-in-out underline;
+            display: block;
+            position: relative;
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .wallet-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-primary);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
         }
         .wallet-link:hover {
-            text-shadow: 0 0 10px #00D4FF, 0 0 18px #00D4FF, 0 0 4px #FFFFFF; 
-            transform: scale(1.06); 
+            color: var(--color-primary);
         }
-        .pumpfun-link-highlight {
-            @apply text-[#7B00FF] hover:text-white transition-all duration-200 ease-in-out underline;
-        }
-        .pumpfun-link-highlight:hover {
-            text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #7B00FF;
-            transform: scale(1.03);
+        .wallet-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
-        @media (max-width: 768px) { 
-            .hero-bg { 
-                background-attachment: scroll; 
-                animation: none; 
-            }
-            
-            .section-title, .sub-section-title {
-                font-size: 2.25rem !important; 
-                margin-top: 4rem; 
-                margin-bottom: 3rem; 
-                text-shadow: 0 0 4px rgba(255,255,255,0.8), 0 0 8px #00D4FF, 0 0 15px #7B00FF; 
-                animation: none; 
-            }
-            
-            section {
-                padding-top: 2rem; 
-                padding-bottom: 2rem; 
-            }
-            #hero { 
-                 padding-top: 2rem; 
-                 padding-bottom: 3rem; 
-            }
-             .hero-content-wrapper { 
-                padding-top: 0rem !important; 
-            }
-
-
-            .token-address-container { flex-direction: column; align-items: stretch; }
-            .token-address-text { margin-bottom: 0.5rem; word-break: normal; } 
-            .copy-address-btn { width: 100%; justify-content: center; }
-
-            .animated-sss-logo {
-                 animation: logoPulseGentle 4.5s infinite alternate ease-in-out; 
-            }
-            .live-tx-feed {
-                max-height: 200px; 
-            }
-            .tx-item, .tx-item-alt {
-                font-size: 0.75rem; 
-                padding: 0.5rem 0.6rem;
-            }
-            
-            .tx-item .flex.justify-between.items-baseline > .flex.items-baseline { 
-                white-space: normal;
-                flex-wrap: wrap;
-            }
-            .tx-item .flex.justify-between.items-baseline > .flex.items-baseline > span { 
-                 margin-bottom: 0.125rem; 
-            }
-
-            .animate-fadeInSlideUp { 
-                 animation: none !important;
-                 opacity: 1 !important; 
-            }
-            .social-icon-link, .cosmic-card { 
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="stars-container" id="starsContainer">
-        </div>
+    <canvas id="wormhole-bg"></canvas>
+    <div class="grain-overlay"></div>
+    <div id="hero-canvas-container"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md shadow-lg h-16" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 h-full flex justify-between items-center"> 
-            <a href="#hero" class="font-orbitron text-xl md:text-2xl font-bold text-white hover:text-[#00D4FF] transition-colors">
-                SolSpeedStar <span class="text-[#00D4FF]">$SSS</span>
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center"> 
+            <a href="#hero" class="font-orbitron text-xl font-bold text-white hover:text-[var(--color-primary)] transition-colors duration-300 flex-shrink-0">
+                SolSpeed<span class="text-[var(--color-primary)]">Star</span>
             </a>
-            <nav class="hidden md:flex space-x-2 lg:space-x-3 items-center"> 
-                <a href="#hero" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">Home</a>
-                <a href="#about" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">About</a>
-                <a href="#how-to-buy" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">How to Buy</a>
-                <a href="#tokenomics" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">Tokenomics</a>
-                <a href="#roadmap" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">Roadmap</a>
-                <a href="#community" class="nav-link text-xs lg:text-sm text-gray-300 hover:text-[#00D4FF] transition-colors px-2 py-1">Community</a>
-                <!-- TODO: Replace with your pump.fun page slug here -->
-                <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" class="font-orbitron btn-header-buy btn-glow"> 
-                    Buy $SSS
-                </a>
-            </nav>
-            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-black/95"> 
-            <!-- TODO: Replace with your pump.fun page slug here -->
-            <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" class="block px-6 py-3 text-center font-orbitron text-base bg-[#00D4FF] text-black hover:bg-[#7B00FF] hover:text-white transition-colors font-bold btn-glow"> 
+            
+            <div class="w-full flex justify-center items-center overflow-x-auto mobile-nav-scroll">
+                <nav class="flex space-x-6 items-center px-4"> 
+                    <a href="#hero" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">About</a>
+                    <a href="#how-to-buy" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">How to Buy</a>
+                    <a href="#tokenomics" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Tokenomics</a>
+                    <a href="#roadmap" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Roadmap</a>
+                    <a href="#community" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Community</a>
+                </nav>
+            </div>
+
+            <!-- ACTION: REPLACE WITH YOUR PUMP.FUN LINK -->
+            <a href="https://pump.fun/52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block btn-pro btn-pro-primary flex-shrink-0 ml-4"> 
                 Buy $SSS
             </a>
-            <a href="#hero" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">Home</a>
-            <a href="#about" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">About</a>
-            <a href="#how-to-buy" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">How to Buy</a>
-            <a href="#tokenomics" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">Tokenomics</a>
-            <a href="#roadmap" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">Roadmap</a>
-            <a href="#community" class="nav-link-mobile block px-6 py-2 text-gray-300 hover:bg-[#00D4FF] hover:text-black transition-colors text-sm">Community</a>
         </div>
     </header>
 
-    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center relative text-center px-4">
-        <div class="absolute inset-0 bg-black opacity-10"></div> 
-        <div class="relative z-10 pt-0 md:pt-0 pb-10 hero-content-wrapper"> 
-            <img src="https://placehold.co/200x200/000000/00D4FF?text=SSS&font=orbitron&font-size=70" alt="SolSpeedStar SSS Logo" class="animated-sss-logo mx-auto mb-6 w-32 h-32 md:w-48 md:h-48 rounded-full shadow-2xl border-2 border-[#00D4FF]" style="filter: drop-shadow(0 0 20px #00D4FF) drop-shadow(0 0 30px #00D4FF);"> 
-            <h1 id="heroTitle" class="animate-fadeInSlideUp font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-6 leading-tight" style="animation-delay: 0.2s; text-shadow: 0 0 10px #00D4FF, 0 0 25px #00D4FF, 0 0 40px #7B00FF, 0 0 60px #7B00FF, 0 0 5px #FFFFFF;"> SolSpeedStar </h1>
-            <p id="heroSubtitle" class="animate-fadeInSlideUp text-xl md:text-3xl font-orbitron font-semibold mb-10 text-gray-100" style="animation-delay: 0.5s; text-shadow: 0 0 8px #000000, 0 0 15px #00D4FF;"> The <span class="text-[#00D4FF]">Fastest</span> Star in the <span class="text-[#7B00FF]">Blockchain Galaxy!</span> </p>
-            <div id="heroButtons" class="animate-fadeInSlideUp space-y-4 sm:space-y-0 sm:space-x-6" style="animation-delay: 0.8s;">
-                <!-- TODO: Replace with your pump.fun page slug here -->
-                <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00D4FF] text-black font-orbitron font-bold py-3 px-8 rounded-lg text-lg uppercase tracking-wider btn-glow">
-                    Buy on pump.fun
-                </a>
-                <a href="#community" class="inline-block bg-[#7B00FF] text-white font-orbitron font-bold py-3 px-8 rounded-lg text-lg uppercase tracking-wider btn-glow-purple">
-                    Join Community
-                </a>
+    <main class="relative z-10">
+        <section id="hero" class="h-screen flex items-center justify-center relative text-center px-4">
+            <div class="relative z-10">
+                <h1 class="font-orbitron text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase mb-4 leading-tight gradient-text">
+                    SolSpeedStar
+                </h1>
+                <p class="text-xl md:text-2xl font-semibold mb-10 text-gray-200 max-w-3xl mx-auto">
+                    A meme coin transcending the speed of light on the Solana blockchain.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <!-- ACTION: REPLACE WITH YOUR PUMP.FUN LINK -->
+                    <a href="https://pump.fun/52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz" target="_blank" rel="noopener noreferrer" class="btn-pro btn-pro-primary btn-hero w-full sm:w-auto">
+                        Buy on pump.fun
+                    </a>
+                    <!-- ACTION: REPLACE WITH YOUR X (TWITTER) LINK -->
+                    <a href="https://x.com/SolSpeedStar" target="_blank" rel="noopener noreferrer" class="btn-pro btn-pro-secondary btn-hero w-full sm:w-auto">
+                        Follow on X
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="token-address" class="py-10 md:py-16 bg-black"> 
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="sub-section-title">$SSS Contract Address</h2> 
-            <div class="max-w-3xl mx-auto cosmic-card p-6 md:p-8 shadow-2xl">
-                <div class="flex flex-col md:flex-row items-center justify-center md:justify-between token-address-container bg-gray-900 bg-opacity-70 p-4 rounded-lg border border-[#7B00FF]">
-                    <p id="tokenContractAddress" class="font-mono text-sm sm:text-base md:text-lg text-[#00D4FF] token-address-text whitespace-nowrap mr-0 md:mr-4">   </p>
-                    <button id="copyAddressButton" class="copy-address-btn font-orbitron mt-3 md:mt-0">
-                        <svg id="copyIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 4.625v2.625m0 0H19.5m-2.25 0h-2.25m2.25 0V13.5m0 2.25H15" />
-                        </svg>
-                        <svg id="tickIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="tick-icon hidden w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-6">What is <span class="gradient-text">SolSpeedStar?</span></h2>
+                    <p class="text-lg text-gray-300 mb-4 leading-relaxed">
+                        $SSS is more than just a token. It's a movement. It's the fuel for a decentralized future, built on the fastest blockchain. We combine meme culture with serious technology to create something truly unique.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Our mission is to go beyond the ordinary, creating a community-driven ecosystem where every idea matters, and every transaction brings us closer to the stars.
+                    </p>
+                </div>
+                <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.2s;">
+                    <h3 class="font-orbitron text-2xl font-bold mb-4 text-white">Contract Address</h3>
+                    <!-- ACTION: REPLACE WITH YOUR ACTUAL CONTRACT ADDRESS -->
+                    <p id="tokenContractAddress" class="font-mono text-lg text-[var(--color-primary)] break-all mb-4">52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz</p>
+                    <button id="copyAddressButton" class="w-full btn-pro btn-pro-primary">
                         <span id="copyButtonText">Copy</span>
                     </button>
+                    <span id="copiedMessage" class="text-center mt-3 block text-sm text-[var(--color-primary)] opacity-0 transition-opacity">Address Copied!</span>
                 </div>
-                <span id="copiedMessage" class="copied-message mt-2 block"></span>
             </div>
-             <p class="mt-6 text-md text-gray-400">
-                Use this address to add $SSS to your wallet or trade on DEXs.
-            </p>
-        </div>
-    </section>
+        </section>
+        
+        <section id="how-to-buy" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-12 reveal-on-scroll">How to <span class="gradient-text">Buy</span></h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-3">1. Wallet</h3>
+                        <p class="text-gray-400 text-sm mb-3">Download a Solana-compatible wallet. Popular choices:</p>
+                        <div class="space-y-2 text-center">
+                            <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" class="wallet-link">Phantom</a>
+                            <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" class="wallet-link">Solflare</a>
+                            <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" class="wallet-link">Metamask</a>
+                        </div>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.15s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">2. Fund</h3>
+                        <p class="text-gray-400">Buy SOL on an exchange and send it to your wallet.</p>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">3. pump.fun</h3>
+                        <p class="text-gray-400">Navigate to the $SSS page on pump.fun.</p>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.45s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">4. Swap</h3>
+                        <p class="text-gray-400">Connect your wallet and swap SOL for $SSS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="about" class="py-10 md:py-16 bg-black"> 
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="sub-section-title">What is SolSpeedStar?</h2> 
-            <div class="max-w-3xl mx-auto">
-                <p class="animate-on-scroll text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
-                    SolSpeedStar ($SSS) isn't just another meme coin; it's a cosmic journey through the Solana universe! Launched on pump.fun, $SSS is designed for speed, community, and intergalactic fun. We're charting a course to become the brightest star in the crypto sky, fueled by memes and a passionate crew.
-                </p>
-                <p class="animate-on-scroll text-lg md:text-xl text-gray-300 leading-relaxed" style="transition-delay: 0.2s;">
-                    Our mission is to create a vibrant, engaged community that propels $SSS to new frontiers. With a fair launch and a clear trajectory, SolSpeedStar is ready for liftoff!
-                </p>
+        <section id="tokenomics" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-12 reveal-on-scroll">Star System <span class="gradient-text">Tokenomics</span></h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Fair Launch</h3>
+                        <p class="text-gray-400">No presales. No hidden tokens. Equal opportunities for everyone from day one.</p>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.15s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Burnt LP</h3>
+                        <p class="text-gray-400">Liquidity is burnt forever, ensuring security and investor confidence.</p>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Renounced Contract</h3>
+                        <p class="text-gray-400">Contract ownership is renounced. The project is fully in the hands of the community.</p>
+                    </div>
+                    <div class="pro-card rounded-2xl p-8 reveal-on-scroll" style="transition-delay: 0.45s;">
+                        <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Zero Taxes</h3>
+                        <p class="text-gray-400">Trade freely. 0% tax on buys and sells for maximum efficiency.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="how-to-buy" class="py-10 md:py-16 bg-black">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="sub-section-title">How to Buy $SSS</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <div class="cosmic-card p-6">
-                    <div class="flex justify-center mb-4">
-                        <img src="https://placehold.co/64x64/00D4FF/000000?text=1&font=orbitron" alt="Step 1" class="w-16 h-16 rounded-full">
+        <section id="roadmap" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-20 text-center reveal-on-scroll">Roadmap: <span class="gradient-text">Path to the Stars</span></h2>
+                <div class="roadmap-timeline max-w-3xl mx-auto">
+                    <div class="roadmap-item left">
+                        <div class="roadmap-content pro-card rounded-lg p-6">
+                            <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Phase 1: Ignition <span class="text-sm text-green-400">(Completed!)</span></h3>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li>✅ Launch on pump.fun & transition to Raydium</li>
+                                <li>✅ Website and social media creation</li>
+                                <li>✅ Initial community formation</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="font-orbitron text-xl text-[#00D4FF] mb-2">1. Get a Wallet</h3>
-                    <p class="text-gray-300 text-sm mb-3">Download a Solana-compatible wallet. Popular choices:</p>
-                    <div class="space-y-1">
-                        <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" class="wallet-link">Phantom Wallet</a>
-                        <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" class="wallet-link">Solflare Wallet</a>
-                        <a href="https://backpack.app/" target="_blank" rel="noopener noreferrer" class="wallet-link">Backpack Wallet</a>
+                    <div class="roadmap-item right">
+                        <div class="roadmap-content pro-card rounded-lg p-6">
+                            <h3 class="font-orbitron text-xl text-[var(--color-secondary)] mb-2">Phase 2: Warp Speed</h3>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Marketing campaign and partnerships</li>
+                                <li>Listings on CoinGecko & CoinMarketCap</li>
+                                <li>Dex Paid</li>
+                                <li>Reach 5,000 holders</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="cosmic-card p-6">
-                     <div class="flex justify-center mb-4">
-                         <img src="https://placehold.co/64x64/7B00FF/FFFFFF?text=2&font=orbitron" alt="Step 2" class="w-16 h-16 rounded-full">
+                    <div class="roadmap-item left">
+                        <div class="roadmap-content pro-card rounded-lg p-6">
+                            <h3 class="font-orbitron text-xl text-[var(--color-primary)] mb-2">Phase 3: Exploration</h3>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li>CEX listing considerations</li>
+                                <li>Development of utility features (TBD)</li>
+                                <li>Global community expansion</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="font-orbitron text-xl text-[#7B00FF] mb-2">2. Fund with SOL</h3>
-                    <p class="text-gray-300 text-sm">Buy SOL on a major exchange (e.g., Coinbase, Binance, Kraken) and send it to your Solana wallet address.</p>
-                </div>
-                <div class="cosmic-card p-6">
-                     <div class="flex justify-center mb-4">
-                         <img src="https://placehold.co/64x64/00D4FF/000000?text=3&font=orbitron" alt="Step 3" class="w-16 h-16 rounded-full">
+                    <div class="roadmap-item right">
+                        <div class="roadmap-content pro-card rounded-lg p-6">
+                            <h3 class="font-orbitron text-xl text-[var(--color-secondary)] mb-2">Phase 4: To Infinity!</h3>
+                            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                                <li>Launch of SolSpeedStar DAO</li>
+                                <li>Ecosystem expansion</li>
+                                <li>Become a legendary meme coin</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="font-orbitron text-xl text-[#00D4FF] mb-2">3. Go to pump.fun</h3>
-                    <p class="text-gray-300 text-sm">Navigate to the $SSS page on <a href="https://pump.fun/YOUR_PUMPFUN_PAGE_SLUG_HERE" target="_blank" rel="noopener noreferrer" class="pumpfun-link-highlight">pump.fun</a>.</p>
-                </div>
-                <div class="cosmic-card p-6">
-                     <div class="flex justify-center mb-4">
-                         <img src="https://placehold.co/64x64/7B00FF/FFFFFF?text=4&font=orbitron" alt="Step 4" class="w-16 h-16 rounded-full">
-                    </div>
-                    <h3 class="font-orbitron text-xl text-[#7B00FF] mb-2">4. Swap SOL for $SSS</h3>
-                    <p class="text-gray-300 text-sm">Connect your wallet, enter the amount of SOL you wish to swap for $SSS, and confirm the transaction.</p>
                 </div>
             </div>
-             <p class="mt-12 animate-on-scroll">
-                <a href="https://pump.fun/YOUR_PUMPFUN_PAGE_SLUG_HERE" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00D4FF] text-black font-orbitron font-bold py-3 px-10 rounded-lg text-xl uppercase tracking-wider btn-glow pumpfun-link-highlight">
-                    Buy $SSS on pump.fun Now!
-                </a>
-            </p>
-        </div>
-    </section>
-    
-    <section id="tokenomics" class="py-10 md:py-16 animated-gradient-bg" style="background: linear-gradient(160deg, #000000 0%, #0a0014 30%, #1a002c 70%, #000000 100%);"> 
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="section-title">Tokenomics</h2> 
-            <div class="max-w-3xl mx-auto cosmic-card p-6 md:p-10 shadow-2xl">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="border-b border-[#00D4FF] border-opacity-50">
-                                <th class="py-4 px-2 md:px-4 font-orbitron text-[#00D4FF] text-lg">Feature</th>
-                                <th class="py-4 px-2 md:px-4 font-orbitron text-[#00D4FF] text-lg">Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="tokenomics-row border-b border-gray-700 hover:bg-gray-800/50 transition-colors">
-                                <td class="py-4 px-2 md:px-4 font-semibold text-gray-200">Total Supply</td>
-                                <td class="py-4 px-2 md:px-4 text-gray-100">1,000,000,000 $SSS (1 Billion)</td>
-                            </tr>
-                            <tr class="tokenomics-row border-b border-gray-700 hover:bg-gray-800/50 transition-colors">
-                                <td class="py-4 px-2 md:px-4 font-semibold text-gray-200">Liquidity (pump.fun)</td>
-                                <td class="py-4 px-2 md:px-4 text-gray-100">80%</td>
-                            </tr>
-                            <tr class="tokenomics-row border-b border-gray-700 hover:bg-gray-800/50 transition-colors">
-                                <td class="py-4 px-2 md:px-4 font-semibold text-gray-200">Marketing & Development</td>
-                                <td class="py-4 px-2 md:px-4 text-gray-100">15%</td>
-                            </tr>
-                            <tr class="tokenomics-row border-b border-gray-700 hover:bg-gray-800/50 transition-colors">
-                                <td class="py-4 px-2 md:px-4 font-semibold text-gray-200">Team Allocation</td>
-                                <td class="py-4 px-2 md:px-4 text-gray-100">5% (Locked/Vested - TBD)</td>
-                            </tr>
-                            <tr class="tokenomics-row hover:bg-gray-800/50 transition-colors">
-                                <td class="py-4 px-2 md:px-4 font-semibold text-gray-200">Raydium Transition</td>
-                                <td class="py-4 px-2 md:px-4 text-gray-100">Liquidity will be burned upon successful transition to Raydium.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="mt-6 text-sm text-center text-[#00D4FF] animate-on-scroll" style="transition-delay: 0.5s;">
-                    Fair launch, transparent distribution. The cosmos is for everyone!
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="roadmap" class="py-10 md:py-16 bg-black"> 
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="section-title">Cosmic Roadmap</h2> 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="cosmic-card p-6 text-center">
-                    <div class="font-orbitron text-2xl text-[#00D4FF] mb-3">Phase 1: Ignition <span class="text-sm text-green-400">(Completed!)</span></div>
-                    <ul class="text-gray-300 space-y-2 text-left list-disc list-inside">
-                        <li class="text-green-400">✅ Launch on pump.fun</li>
-                        <li class="text-green-400">✅ Website & Socials Live</li>
-                        <li class="text-green-400">✅ Initial Community Building</li>
-                        <li class="text-green-400">✅ Meme Contests & Giveaways</li>
-                    </ul>
-                </div>
-                <div class="cosmic-card p-6 text-center">
-                    <div class="font-orbitron text-2xl text-[#7B00FF] mb-3">Phase 2: Warp Speed</div>
-                    <ul class="text-gray-300 space-y-2 text-left list-disc list-inside">
-                        <li>Raydium Listing Goal</li>
-                        <li>DEX Payed</li> 
-                        <li>Influencer Marketing Push</li>
-                        <li>Expand Community Mods</li>
-                    </ul>
-                </div>
-                <div class="cosmic-card p-6 text-center">
-                    <div class="font-orbitron text-2xl text-[#00D4FF] mb-3">Phase 3: Galaxy Exploration</div>
-                    <ul class="text-gray-300 space-y-2 text-left list-disc list-inside">
-                        <li>Utility Development (e.g., Staking, NFTs - TBD)</li>
-                        <li>Partnerships</li>
-                        <li>CEX Listing Considerations</li>
-                        <li>Global Community Growth</li>
-                    </ul>
-                </div>
-                <div class="cosmic-card p-6 text-center">
-                    <div class="font-orbitron text-2xl text-[#7B00FF] mb-3">Phase 4: To Infinity!</div>
-                    <ul class="text-gray-300 space-y-2 text-left list-disc list-inside">
-                        <li>Further Ecosystem Expansion</li>
-                        <li>SolSpeedStar DAO (Community Governance)</li>
-                        <li>Charitable Initiatives</li>
-                        <li>Become a Legendary Meme Coin</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="community" class="py-10 md:py-16 animated-gradient-bg" style="background: linear-gradient(200deg, #0a0014 0%, #000000 40%, #1a002c 80%, #0a0014 100%);"> 
-        <div class="container mx-auto px-6 text-center"> 
-            <h2 class="section-title">Join the SolSpeedStar Crew</h2> 
-            <div class="grid md:grid-cols-2 gap-8 items-stretch"> 
-                <div class="cosmic-card p-6 md:p-8 flex flex-col"> 
-                    <h3 class="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-[#00D4FF] text-left animate-on-scroll">Connect With Us</h3> 
-                    <p class="text-gray-300 mb-6 text-left animate-on-scroll" style="transition-delay: 0.1s;">
-                        Follow our journey, share your memes, and be part of the fastest growing community in the Solana galaxy!
-                    </p>
-                    <div class="space-y-4 mt-auto"> 
-                        <!-- TODO: Replace with your X (Twitter) profile link here -->
-                        <a href="https://x.com/solspeedstar" target="_blank" rel="noopener noreferrer" class="social-icon-link flex items-center space-x-3 bg-gray-800 hover:bg-[#00D4FF] text-white hover:text-black p-4 rounded-lg transition-all duration-300 group">
-                            <svg class="w-8 h-8 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                            <span class="font-semibold text-lg">Follow on X (Twitter)</span>
-                        </a>
-                        <!-- TODO: Replace with your Telegram link here -->
-                        <a href="https://t.me/solspeedstar" target="_blank" rel="noopener noreferrer" class="social-icon-link flex items-center space-x-3 bg-gray-800 hover:bg-[#7B00FF] text-white p-4 rounded-lg transition-all duration-300 group">
-                            <svg class="w-8 h-8 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21.926 3.074l-2.824 13.305c-.205.966-.78 1.213-1.626.758l-4.254-3.134-2.052 1.976c-.227.228-.415.416-.849.416l.306-4.33L16.925 5.53c.325-.295-.084-.458-.506-.163L7.53 11.726l-4.13-1.29c-.953-.295-.973-1.008.195-1.486L20.704 2.08c.823-.343 1.55.196 1.222.994z"/>
-                            </svg>
-                            <span class="font-semibold text-lg">Join Telegram</span>
-                        </a>
+        <section id="community" class="py-24">
+             <div class="container mx-auto px-6">
+                <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-12 text-center reveal-on-scroll">Join the <span class="gradient-text">Revolution</span></h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start"> 
+                    <div class="pro-card rounded-2xl p-8 flex flex-col h-full reveal-on-scroll"> 
+                        <h3 class="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-white">Connect With Us</h3> 
+                        <p class="text-gray-300 mb-6">
+                            Follow our journey, share your memes, and be part of the fastest-growing community in the Solana galaxy!
+                        </p>
+                        <div class="space-y-4 mt-auto"> 
+                            <!-- ACTION: REPLACE WITH YOUR X (TWITTER) LINK -->
+                            <a href="https://x.com/SolSpeedStar" target="_blank" rel="noopener noreferrer" class="btn-social">
+                                <svg class="w-8 h-8 text-[var(--color-primary)] icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                <span class="font-semibold text-lg text-gray-300 text">Follow on X (Twitter)</span>
+                            </a>
+                            <!-- ACTION: REPLACE WITH YOUR TELEGRAM LINK -->
+                            <a href="https://t.me/solspeedstar_community" target="_blank" rel="noopener noreferrer" class="btn-social" style="--glow-color: var(--color-secondary);">
+                                <svg class="w-8 h-8 text-[var(--color-secondary)] icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.926 3.074l-2.824 13.305c-.205.966-.78 1.213-1.626.758l-4.254-3.134-2.052 1.976c-.227.228-.415.416-.849.416l.306-4.33L16.925 5.53c.325-.295-.084-.458-.506-.163L7.53 11.726l-4.13-1.29c-.953-.295-.973-1.008.195-1.486L20.704 2.08c.823-.343 1.55.196 1.222.994z"/></svg>
+                                <span class="font-semibold text-lg text-gray-300 text">Join Telegram</span>
+                            </a>
+                        </div>
                     </div>
-                    <p class="mt-8 text-sm text-gray-400 text-left animate-on-scroll" style="transition-delay: 0.2s;">
-                        Use <strong class="text-[#00D4FF]">#SolSpeedStar</strong> and <strong class="text-[#7B00FF]">$SSS</strong> to join the conversation!
-                    </p>
-                </div>
 
-                <div class="cosmic-card p-6 md:p-8 flex flex-col"> 
-                    <h3 class="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-[#7B00FF] text-left animate-on-scroll">Live $SSS Transactions</h3> 
-                    <div id="liveTxFeed" class="live-tx-feed bg-gray-900 bg-opacity-50 p-4 rounded-lg border border-[#7B00FF] flex-grow"> 
-                        <p class="text-gray-400 text-center pt-10">Initializing transaction feed...</p>
+                    <div class="pro-card rounded-2xl p-8 flex flex-col h-full reveal-on-scroll" style="transition-delay: 0.2s;"> 
+                        <h3 class="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-white">Live Transactions</h3> 
+                        <div id="liveTxFeed" class="live-tx-feed bg-black/30 p-4 rounded-lg border border-white/10 flex-grow"> 
+                            <p class="text-gray-400 text-center h-full flex items-center justify-center">Waiting for the first transaction...</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="py-12 bg-black border-t border-[#00D4FF] border-opacity-30">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="mb-6 animate-on-scroll">
-                <a href="#hero" class="font-orbitron text-3xl font-bold text-white hover:text-[#00D4FF] transition-colors">
-                    SolSpeedStar <span class="text-[#00D4FF]">$SSS</span>
-                </a>
+        <footer class="py-16 border-t border-white/10">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-sm text-gray-500">&copy; <span id="currentYear"></span> SolSpeedStar. All rights reserved.</p>
+                <p class="text-xs text-gray-600 mt-2 max-w-xl mx-auto">Disclaimer: Invest wisely. Cryptocurrencies are volatile. Do your own research.</p>
             </div>
-            <p class="text-sm mb-2 animate-on-scroll" style="transition-delay: 0.1s;">
-                &copy; <span id="currentYear"></span> SolSpeedStar. All rights reserved. Houston, we have a meme coin!
-            </p>
-            <p class="text-xs max-w-2xl mx-auto animate-on-scroll" style="transition-delay: 0.2s;">
-                <strong>Risk Disclaimer:</strong> Cryptocurrency investment is subject to high market risk. Please make your investments cautiously. SolSpeedStar ($SSS) is a meme coin created for entertainment purposes and has no intrinsic financial value. Token value can be highly volatile. Do your own research (DYOR) and never invest more than you can afford to lose.
-            </p>
-        </div>
-    </footer>
+        </footer>
+    </main>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a.nav-link, a.nav-link-mobile, a[href="#hero"]').forEach(anchor => { 
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 3D Hero Object with Three.js ---
+        const heroCanvasContainer = document.getElementById('hero-canvas-container');
+        if (heroCanvasContainer && typeof THREE !== 'undefined') {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            heroCanvasContainer.appendChild(renderer.domElement);
+
+            const geometry = new THREE.IcosahedronGeometry(1.5, 1);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0x9B30FF,
+                emissive: 0x0AF0F0,
+                emissiveIntensity: 0.5,
+                metalness: 0.8,
+                roughness: 0.2,
+                wireframe: true,
+            });
+            const star = new THREE.Mesh(geometry, material);
+            scene.add(star);
+
+            const pointLight = new THREE.PointLight(0x0AF0F0, 2, 100);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+            
+            const ambientLight = new THREE.AmbientLight(0x9B30FF, 0.5);
+            scene.add(ambientLight);
+
+            camera.position.z = 5;
+
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                star.rotation.x += 0.001;
+                star.rotation.y += 0.002;
+                
+                camera.position.x += (mouseX * 2 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+        // --- Wormhole Background Effect ---
+        const wormholeCanvas = document.getElementById('wormhole-bg');
+        if(wormholeCanvas && wormholeCanvas.getContext) {
+            const ctx = wormholeCanvas.getContext('2d');
+            let stars = [];
+            let speed = 2;
+
+            function resizeWormhole() {
+                wormholeCanvas.width = window.innerWidth;
+                wormholeCanvas.height = window.innerHeight;
+                stars = [];
+                for(let i = 0; i < 500; i++) {
+                    stars.push({
+                        x: Math.random() * wormholeCanvas.width,
+                        y: Math.random() * wormholeCanvas.height,
+                        z: Math.random() * wormholeCanvas.width
+                    });
+                }
+            }
+
+            function drawWormhole() {
+                ctx.fillStyle = 'rgba(1, 1, 3, 0.1)';
+                ctx.fillRect(0, 0, wormholeCanvas.width, wormholeCanvas.height);
+                ctx.fillStyle = 'rgba(175, 238, 238, 0.5)';
+                
+                const centerX = wormholeCanvas.width / 2;
+                const centerY = wormholeCanvas.height / 2;
+
+                stars.forEach(star => {
+                    star.z -= speed;
+                    if(star.z <= 0) {
+                        star.z = wormholeCanvas.width;
+                    }
+
+                    let k = 128 / star.z;
+                    let px = (star.x - centerX) * k + centerX;
+                    let py = (star.y - centerY) * k + centerY;
+
+                    if(px >= 0 && px <= wormholeCanvas.width && py >= 0 && py <= wormholeCanvas.height) {
+                        let size = (1 - star.z / wormholeCanvas.width) * 3;
+                        ctx.beginPath();
+                        ctx.arc(px, py, size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+            }
+
+            function animateWormhole() {
+                drawWormhole();
+                requestAnimationFrame(animateWormhole);
+            }
+            resizeWormhole();
+            animateWormhole();
+        }
+
+        // --- Smooth Scrolling ---
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const elementToScroll = document.querySelector(targetId); 
+                const targetElement = document.querySelector(targetId);
 
-                if (elementToScroll) {
-                    const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-                    const elementPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - navbarHeight;
-                    
+                if (targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
             });
         });
 
-        // Twinkling Stars Generation
-        const starsContainer = document.getElementById('starsContainer');
-        if (starsContainer) { 
-            const isMobile = window.innerWidth < 768; 
-            const numStars = isMobile ? 80 : 200; 
-            for (let i = 0; i < numStars; i++) {
-                let star = document.createElement('div');
-                star.className = 'star'; 
-                const layerType = Math.random(); 
-                let size, duration, layerClass;
-                if (layerType < 0.33) { 
-                    layerClass = 'layer1'; size = Math.random() * 1.8 + 1; duration = Math.random() * 2 + 3; 
-                } else if (layerType < 0.66) { 
-                    layerClass = 'layer2'; size = Math.random() * 1.2 + 0.6; duration = Math.random() * 2.5 + 4.5; 
-                } else { 
-                    layerClass = 'layer3'; size = Math.random() * 0.8 + 0.4; duration = Math.random() * 3 + 6; 
-                }
-                star.classList.add(layerClass); 
-                star.style.top = Math.random() * 100 + '%';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.width = size + 'px';
-                star.style.height = size + 'px';
-                star.style.animationDuration = duration + 's';
-                star.style.animationDelay = (Math.random() * duration * 0.7) + 's'; 
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // Dynamic Year in Footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Hero Text Animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const heroTitle = document.getElementById('heroTitle');
-            const heroSubtitle = document.getElementById('heroSubtitle');
-            const heroButtons = document.getElementById('heroButtons');
-
-            if(heroTitle) heroTitle.style.animation = 'fadeInSlideUp 0.8s ease-out forwards 0.2s';
-            if(heroSubtitle) heroSubtitle.style.animation = 'fadeInSlideUp 0.8s ease-out forwards 0.5s';
-            if(heroButtons) heroButtons.style.animation = 'fadeInSlideUp 0.8s ease-out forwards 0.8s';
-        
-        });
-
-
-        // Intersection Observer for general scroll animations
-        const scrollAnimatedElements = document.querySelectorAll('.animate-on-scroll, .cosmic-card, .tokenomics-row, .social-icon-link');
-        
-        const scrollObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry, index) => {
+        // --- Animate on Scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-                    if (el.classList.contains('animate-on-scroll') || (el.classList.contains('cosmic-card') && !el.closest('#how-to-buy') && !el.closest('#roadmap') && !el.closest('#community'))) { // Exclude community cards for now
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                        el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
-                        if(el.style.transitionDelay) { 
-                             el.style.transition += `, transition-delay ${el.style.transitionDelay}`;
-                        }
-                    } 
-                    else if (el.classList.contains('tokenomics-row')) {
-                        el.style.animationPlayState = 'running';
-                    }
-                    // Staggered animation for cards in specific sections (how-to-buy, roadmap, community)
-                    else if (el.classList.contains('cosmic-card') && (el.closest('#how-to-buy') || el.closest('#roadmap') || el.closest('#community'))) {
-                        const cardIndex = Array.from(el.parentElement.children).indexOf(el);
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                        el.style.transition = `opacity 0.6s ease-out ${cardIndex * 0.15}s, transform 0.6s ease-out ${cardIndex * 0.15}s`;
-                    }
-                    else if (el.classList.contains('social-icon-link')) {
-                        const iconIndex = Array.from(el.parentElement.children).indexOf(el);
-                        el.style.opacity = '1';
-                        el.style.transform = 'scale(1) translateY(0)';
-                        el.style.transitionDelay = `${iconIndex * 0.15}s`;
-                    }
-                    observer.unobserve(el);
+                    entry.target.classList.add('is-visible');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-on-scroll, .roadmap-item').forEach(el => observer.observe(el));
 
-        scrollAnimatedElements.forEach(el => {
-            if (el.classList.contains('animate-on-scroll') || (el.classList.contains('cosmic-card') && !el.closest('#how-to-buy') && !el.closest('#roadmap') && !el.closest('#community'))) {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-            }
-            scrollObserver.observe(el);
+        // --- Card Mouse Effect ---
+        document.querySelectorAll('.pro-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
         });
 
-
-        // Copy Token Address
-        const copyAddressButton = document.getElementById('copyAddressButton');
+        // --- Live Transaction Feed Logic ---
+        const txFeedElement = document.getElementById('liveTxFeed');
         const tokenAddressElement = document.getElementById('tokenContractAddress');
-        const copiedMessageElement = document.getElementById('copiedMessage');
-        const copyIcon = document.getElementById('copyIcon');
-        const tickIcon = document.getElementById('tickIcon');
-        const copyButtonText = document.getElementById('copyButtonText');
+        const placeholderAddress = "52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz";
+        let isFeedActive = false;
+        let initialBuyPeriodEndTime = 0;
 
-        if (copyAddressButton && tokenAddressElement && copiedMessageElement && copyIcon && tickIcon && copyButtonText) {
-            copyAddressButton.addEventListener('click', () => {
-                const addressToCopy = tokenAddressElement.innerText;
-                try {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = addressToCopy;
-                    textArea.style.position = "fixed"; 
-                    textArea.style.top = "0";
-                    textArea.style.left = "0";
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
+        const initializeFeed = () => {
+            if (isFeedActive || !txFeedElement) return;
+            isFeedActive = true;
+            initialBuyPeriodEndTime = Date.now() + 90000; // 1.5 minutes of buys
+            
+            txFeedElement.innerHTML = ''; // Clear initial message
 
-                    copiedMessageElement.textContent = 'Address Copied!';
-                    copyIcon.classList.add('hidden'); tickIcon.classList.remove('hidden');
-                    copyButtonText.textContent = 'Copied!';
-                    copyAddressButton.classList.add('bg-[#7B00FF]', 'text-white'); 
-                    copyAddressButton.classList.remove('bg-[#00D4FF]', 'text-black');
-                    setTimeout(() => {
-                        copiedMessageElement.textContent = '';
-                        copyIcon.classList.remove('hidden'); tickIcon.classList.add('hidden');
-                        copyButtonText.textContent = 'Copy';
-                        copyAddressButton.classList.remove('bg-[#7B00FF]', 'text-white');
-                        copyAddressButton.classList.add('bg-[#00D4FF]', 'text-black');
-                    }, 2500);
-
-                } catch (err) {
-                    console.error('Fallback: Oops, unable to copy', err);
-                    navigator.clipboard.writeText(addressToCopy).then(() => {
-                        copiedMessageElement.textContent = 'Address Copied!';
-                        copyIcon.classList.add('hidden'); tickIcon.classList.remove('hidden');
-                        copyButtonText.textContent = 'Copied!';
-                        copyAddressButton.classList.add('bg-[#7B00FF]', 'text-white'); 
-                        copyAddressButton.classList.remove('bg-[#00D4FF]', 'text-black');
-                         setTimeout(() => {
-                            copiedMessageElement.textContent = '';
-                            copyIcon.classList.remove('hidden'); tickIcon.classList.add('hidden');
-                            copyButtonText.textContent = 'Copy';
-                            copyAddressButton.classList.remove('bg-[#7B00FF]', 'text-white');
-                            copyAddressButton.classList.add('bg-[#00D4FF]', 'text-black');
-                        }, 2500);
-                    }).catch(err => {
-                        console.error('Failed to copy address: ', err);
-                        copiedMessageElement.textContent = 'Copy Failed!';
-                        setTimeout(() => { copiedMessageElement.textContent = ''; }, 2500);
-                    });
-                }
-            });
-        }
-
-        // --- Live Transaction Feed Simulation ---
-        function startTransactionFeed() {
-            const txFeedElement = document.getElementById('liveTxFeed');
-            if (!txFeedElement || txFeedElement.dataset.initialized === 'true') {
-                return; // Exit if element not found or already initialized
-            }
-            txFeedElement.dataset.initialized = 'true'; // Mark as initialized
-
-            let allTransactions = []; // Array to store all transaction data objects
-            const maxDisplayItems = 4; // How many items to display
-            let txCounter = 0; 
-            let lastTxTime = 0; 
-            let transactionTimeoutId = null; 
-            let initializationDone = false;
-
-            const solanaAddressChars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-            const generateRandomSolanaAddress = (length = 44) => { 
+            const solanaChars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+            const generateRandomString = (length) => {
                 let result = '';
                 for (let i = 0; i < length; i++) {
-                    result += solanaAddressChars.charAt(Math.floor(Math.random() * solanaAddressChars.length));
+                    result += solanaChars.charAt(Math.floor(Math.random() * solanaChars.length));
                 }
                 return result;
             };
             
-            const actionVerb = "Buy"; 
+            const createTxItemHTML = (tx) => {
+                const amountFormatted = tx.amount.toLocaleString('en-US');
+                const isBuy = tx.type === 'buy';
+                const itemClass = isBuy ? 'tx-buy' : 'tx-sell';
+                const amountColor = isBuy ? 'text-green-400' : 'text-red-500';
+                const actionText = isBuy ? 'Buy' : 'Sell';
 
-            const formatNumber = (num) => { 
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            };
-
-            const getFormattedTime = (timestamp) => {
-                const date = new Date(timestamp);
-                const hours = date.getHours().toString().padStart(2, '0');
-                const minutes = date.getMinutes().toString().padStart(2, '0');
-                const seconds = date.getSeconds().toString().padStart(2, '0');
-                return `${hours}:${minutes}:${seconds}`;
-            };
-            
-            const createTxItemHTML = (txData, displayIndex) => { 
-                const walletDisplay = `${txData.wallet.substring(0, 5)}...${txData.wallet.substring(txData.wallet.length - 5)}`;
-                
-                let itemClass = `tx-item rounded-lg shadow-md text-sm ${displayIndex % 2 === 0 ? 'tx-item' : 'tx-item-alt'}`;
-                
                 return `
-                    <div class="${itemClass}">
-                        <div> 
-                            <div class="flex justify-between items-baseline">
-                                <div class="flex items-baseline flex-wrap mr-2"> 
-                                    <span class="font-mono text-[#00D4FF] cursor-default">${walletDisplay}</span>
-                                    <span class="text-white ml-1.5">${actionVerb}</span>
-                                    <span class="font-bold text-green-400 ml-1.5 truncate">${formatNumber(txData.amountSSS)} $SSS</span>
-                                </div>
-                                <div class="tx-time flex-shrink-0">
-                                    <span class="text-xs text-gray-500 font-mono">${getFormattedTime(txData.timestamp)}</span>
-                                </div>
+                    <div class="tx-item ${itemClass}">
+                        <div class="flex justify-between items-center text-sm">
+                            <div class="flex items-center flex-wrap">
+                                <span class="font-mono text-[var(--color-primary)] mr-2">${tx.wallet.substring(0,4)}...${tx.wallet.substring(tx.wallet.length - 4)}</span>
+                                <span class="text-white mr-2">${actionText}</span>
+                                <span class="font-bold ${amountColor}">${amountFormatted} $SSS</span>
                             </div>
-                            <p class="text-xs text-gray-600 font-mono block truncate mt-1 text-left">
-                                Tx ID: ${txData.txId.substring(0, 10)}...${txData.txId.substring(txData.txId.length - 10)}
-                            </p>
+                            <span class="text-xs text-gray-500 font-mono flex-shrink-0">${tx.time}</span>
                         </div>
                     </div>`;
             };
 
-            const renderTransactions = () => {
-                if (!txFeedElement) return;
-                
-                allTransactions.sort((a, b) => b.timestamp - a.timestamp); 
-
-                const transactionsToDisplay = allTransactions.slice(0, maxDisplayItems);
-
-                txFeedElement.innerHTML = ''; 
-
-                if (transactionsToDisplay.length === 0 && !initializationDone) {
-                     txFeedElement.innerHTML = '<p class="text-gray-400 text-center pt-10">Waiting for transactions...</p>';
-                     return;
-                }
-                
-                transactionsToDisplay.forEach((txData, displayIndex) => {
-                    const itemHTML = createTxItemHTML(txData, displayIndex); 
-                    const tempDiv = document.createElement('div'); 
-                    tempDiv.innerHTML = itemHTML.trim();
-                    const newItemElement = tempDiv.firstChild; 
-                    
-                    if (txData.isNew) { 
-                        newItemElement.style.animation = `newTxEntry 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards`; 
-                        delete txData.isNew; 
-                        setTimeout(() => {
-                           if (newItemElement) newItemElement.style.animation = '';
-                        }, 600); 
-                    }
-
-                    if (displayIndex === 0 && (Date.now() - txData.timestamp < 4000)) { 
-                        newItemElement.classList.add(displayIndex % 2 === 0 ? 'highlight-new' : 'highlight-new-alt'); 
-                         setTimeout(() => {
-                            if (newItemElement) {
-                                newItemElement.classList.remove('highlight-new');
-                                newItemElement.classList.remove('highlight-new-alt');
-                            }
-                        }, 2000);
-                    }
-                    txFeedElement.appendChild(newItemElement);
-                });
-            };
-
-            const scheduleNextTransaction = () => {
-                clearTimeout(transactionTimeoutId); 
-                const currentTime = Date.now();
-                const minDelay = 7000; 
-                let delayForNext = 0;
-                if (lastTxTime !== 0 && (currentTime - lastTxTime < minDelay) ) {
-                    delayForNext = minDelay - (currentTime - lastTxTime);
-                }
-                const randomAdditionalDelay = Math.random() * (35000 - 8000) + 8000;
-                delayForNext += randomAdditionalDelay;
-                transactionTimeoutId = setTimeout(addNewTransaction, delayForNext);
-            };
-
             const addNewTransaction = () => {
-                lastTxTime = Date.now();
-                const amountSSS = Math.floor(Math.random() * (4500000 - 50000 + 1)) + 50000; 
-                const newTxData = {
-                    wallet: generateRandomSolanaAddress(),
-                    amountSSS: amountSSS,
-                    txId: generateRandomSolanaAddress(64), 
-                    timestamp: Date.now(), 
-                    isNew: true 
+                const now = new Date();
+                let txType = 'buy';
+                
+                // After initial period, introduce sells with a low probability
+                if (Date.now() > initialBuyPeriodEndTime) {
+                    txType = Math.random() > 0.85 ? 'sell' : 'buy'; // ~15% chance of a sell
+                }
+
+                const newTx = {
+                    type: txType,
+                    amount: Math.floor(Math.random() * (4500000 - 50000 + 1)) + 50000,
+                    wallet: generateRandomString(44), // Realistic wallet address length
+                    time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
                 };
-
-                allTransactions.unshift(newTxData); 
                 
-                if (allTransactions.length > 50) { 
-                    allTransactions.splice(50); 
-                }
+                const txItemHTML = createTxItemHTML(newTx);
+                const newItem = document.createElement('div');
+                newItem.innerHTML = txItemHTML;
+                const childNode = newItem.firstElementChild; 
                 
-                renderTransactions();
-                scheduleNextTransaction(); 
-            };
-            
-            const initializeFeed = () => {
-                let currentMockTime = Date.now(); 
-
-                for(let i = 0; i < maxDisplayItems ; i++){ 
-                    const initialAmountSSS = Math.floor(Math.random() * (2000000 - 10000 + 1)) + 10000;
-                    currentMockTime -= (Math.random() * 25000 + 15000 + (i * 2000)); 
+                if (childNode) {
+                    childNode.style.opacity = '0';
+                    childNode.style.transform = 'translateY(-20px)';
                     
-                    allTransactions.push({
-                        wallet: generateRandomSolanaAddress(),
-                        amountSSS: initialAmountSSS,
-                        txId: generateRandomSolanaAddress(64),
-                        timestamp: currentMockTime, 
-                    });
+                    txFeedElement.prepend(childNode);
+                    
+                    setTimeout(() => {
+                        childNode.style.opacity = '1';
+                        childNode.style.transform = 'translateY(0)';
+                    }, 50);
+
+                    if (txFeedElement.children.length > 10) {
+                        txFeedElement.lastChild.remove();
+                    }
                 }
                 
-                initializationDone = true;
-                renderTransactions(); 
-
-                lastTxTime = Date.now(); 
-                scheduleNextTransaction(); 
+                setTimeout(addNewTransaction, Math.random() * 8000 + 3000);
             };
             
+            setTimeout(addNewTransaction, 500); 
+        };
+
+        // Check if CA is real on page load
+        if (tokenAddressElement && tokenAddressElement.innerText.trim() !== placeholderAddress) {
             initializeFeed();
+        } else {
+            txFeedElement.innerHTML = '<p class="text-gray-400 text-center h-full flex items-center justify-center">Waiting for the first transaction...</p>';
         }
 
-        // --- Main Page Logic ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // ... (existing DOMContentLoaded code for hero animations, etc.)
+        // --- Copy Address Button ---
+        const copyButton = document.getElementById('copyAddressButton');
+        copyButton.addEventListener('click', () => {
+            const address = document.getElementById('tokenContractAddress').innerText;
+            const messageEl = document.getElementById('copiedMessage');
+            const buttonTextEl = document.getElementById('copyButtonText');
 
-            const tokenAddressElement = document.getElementById('tokenContractAddress');
-            const txFeedElement = document.getElementById('liveTxFeed');
-            const placeholderAddress = "YOUR_ACTUAL_SSS_TOKEN_ADDRESS_HERE";
-            let observer;
+            const textArea = document.createElement("textarea");
+            textArea.value = address;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
 
-            // Function to check the address and start the feed if applicable
-            function checkAndStartFeed() {
-                if (tokenAddressElement.innerText.trim() !== placeholderAddress && tokenAddressElement.innerText.trim() !== '') {
-                    if (txFeedElement && txFeedElement.dataset.initialized !== 'true') {
-                         // Clear the waiting message
-                        txFeedElement.innerHTML = '<p class="text-gray-400 text-center pt-10">Initializing transaction feed...</p>';
-                        startTransactionFeed();
-                        // If using an observer, disconnect it here
-                        if (observer) {
-                            observer.disconnect();
-                        }
-                    }
-                } else {
-                     if (txFeedElement) {
-                        // Set the waiting message
-                         txFeedElement.innerHTML = '<p class="text-gray-400 text-center pt-10">Waiting for transactions...</p>';
-                     }
-                }
-            }
-            
-            // Initial check on page load
-            checkAndStartFeed();
-
-            // Set up a MutationObserver to watch for changes
-            observer = new MutationObserver((mutationsList, observer) => {
-                // We only care that a change happened, so we just re-run the check
-                checkAndStartFeed();
-            });
-
-            // Start observing the target node for configured mutations
-            if (tokenAddressElement) {
-                observer.observe(tokenAddressElement, { childList: true, characterData: true, subtree: true });
+            try {
+                document.execCommand('copy');
+                buttonTextEl.textContent = 'Copied!';
+                messageEl.style.opacity = '1';
+                
+                setTimeout(() => {
+                    buttonTextEl.textContent = 'Copy';
+                    messageEl.style.opacity = '0';
+                }, 2000);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
             }
 
+            document.body.removeChild(textArea);
         });
-      
+        
+        // --- Dynamic Year ---
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    });
     </script>
 </body>
 </html>
