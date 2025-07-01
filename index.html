@@ -38,7 +38,7 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-dark);
+            /* background-color removed from here to allow canvas background to show */
             color: #E0E0E0;
             overflow-x: hidden; 
         }
@@ -50,7 +50,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVAAAAacXJUPEBFQkZUT0tPTE1OT09BEAASDA9BQUDHR0ec/PHp8vjQ2dza4t7p8vjJ0d7V3+HY4t/e5/ocCAw+S8ZlAAAAVElEQVR42uzNjQoAMQhE0TRg79a7/3/tQdGD7gUv+9r5vO8SSIIw+b2xINMvG84l4P2fM43Ew4p2P6+k/t9b4Q/2bYx+4l5P6W+eT+k+s+qG+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6-');
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVAAAAacXJUPEBFQkZUT0tPTE1OT09BEAASDA9BQUDHR0ec/PHp8vjQ2dza4t7p8vjJ0d7V3+HY4t/e5/ocCAw+S8ZlAAAAVElEQVR42uzNjQoAMQhE0TRg79a7/3/tQdGD7gUv+9r5vO8SSIIw+b2xINMvG84l4P2fM43Ew4p2P6+k/t9b4Q/2bYx+4l5P6W+eT+k+s+qG+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/6g+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/6g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6g+r/qg+p/2g+r/6-');
             z-index: -1;
             opacity: 0.05;
             animation: noise 0.5s steps(2) infinite;
@@ -364,7 +364,7 @@
                 SolSpeed<span class="text-[var(--color-primary)]">Star</span>
             </a>
             
-            <div class="w-full flex justify-center items-center overflow-x-auto mobile-nav-scroll">
+            <div class="hidden lg:flex w-full justify-center items-center">
                 <nav class="flex space-x-6 items-center px-4"> 
                     <a href="#hero" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Home</a>
                     <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">About</a>
@@ -374,18 +374,38 @@
                     <a href="#community" class="nav-link text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap">Community</a>
                 </nav>
             </div>
+            
+            <!-- Burger Menu Button -->
+            <button id="mobileMenuButton" class="lg:hidden text-white focus:outline-none z-50">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
 
             <!-- ACTION: REPLACE WITH YOUR PUMP.FUN LINK -->
-            <a href="https://pump.fun/52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block btn-pro btn-pro-primary flex-shrink-0 ml-4"> 
+            <a href="https://pump.fun/52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-block btn-pro btn-pro-primary flex-shrink-0 ml-4"> 
                 Buy $SSS
             </a>
         </div>
     </header>
+    
+    <!-- Fullscreen Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-black/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#hero" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">Home</a>
+        <a href="#about" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">About</a>
+        <a href="#how-to-buy" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">How to Buy</a>
+        <a href="#tokenomics" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">Tokenomics</a>
+        <a href="#roadmap" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">Roadmap</a>
+        <a href="#community" class="nav-link-mobile text-2xl text-gray-300 hover:text-white transition-colors">Community</a>
+        <div class="pt-8">
+            <!-- ACTION: REPLACE WITH YOUR PUMP.FUN LINK -->
+            <a href="https://pump.fun/52h1i1aXb9Zp2J4j6E1g6J3k7L8m9N0oPpQrStUvWxYz" target="_blank" rel="noopener noreferrer" class="btn-pro btn-pro-primary btn-hero">Buy $SSS</a>
+        </div>
+    </div>
+
 
     <main class="relative z-10">
         <section id="hero" class="h-screen flex items-center justify-center relative text-center px-4">
             <div class="relative z-10">
-                <h1 class="font-orbitron text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase mb-4 leading-tight gradient-text">
+                <h1 class="font-orbitron text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase mb-4 leading-tight gradient-text">
                     SolSpeedStar
                 </h1>
                 <p class="text-xl md:text-2xl font-semibold mb-10 text-gray-200 max-w-3xl mx-auto">
@@ -684,7 +704,7 @@
         }
 
         // --- Smooth Scrolling ---
-        document.querySelectorAll('a.nav-link').forEach(anchor => {
+        document.querySelectorAll('a.nav-link, a.nav-link-mobile').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
@@ -700,6 +720,22 @@
                         behavior: 'smooth'
                     });
                 }
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                }
+            });
+        });
+        
+        // --- Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.nav-link-mobile').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
 
@@ -774,16 +810,15 @@
                 const now = new Date();
                 let txType = 'buy';
                 
-                // After initial period, introduce sells with a low probability
                 if (Date.now() > initialBuyPeriodEndTime) {
-                    txType = Math.random() > 0.85 ? 'sell' : 'buy'; // ~15% chance of a sell
+                    txType = Math.random() > 0.85 ? 'sell' : 'buy';
                 }
 
                 const newTx = {
                     type: txType,
                     amount: Math.floor(Math.random() * (4500000 - 50000 + 1)) + 50000,
-                    wallet: generateRandomString(44), // Realistic wallet address length
-                    txId: generateRandomString(87), // Realistic tx signature length
+                    wallet: generateRandomString(44),
+                    txId: generateRandomString(87),
                     time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
                 };
                 
@@ -814,7 +849,6 @@
             setTimeout(addNewTransaction, 500); 
         };
 
-        // Check if CA is real on page load
         if (tokenAddressElement && tokenAddressElement.innerText.trim().toUpperCase() !== placeholderText) {
             initializeFeed();
         } else {
